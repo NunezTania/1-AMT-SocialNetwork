@@ -32,18 +32,19 @@ public class Twitter implements IObservable {
 
     @Override
     public void subscribe(List<IObserver> observer) throws SubscriberAlreadyExistsException {
+        boolean alreadyExists = false;
         if (observer != null)
         {
-            if (observer.size() > 0)
+            for (IObserver obs : observer)
             {
-                for (IObserver obs : observer)
-                {
-                    if (_observers.contains(obs))
-                        throw new SubscriberAlreadyExistsException();
+                if (_observers.contains(obs))
+                    alreadyExists = true;
+                else
                     _observers.add(obs);
-                }
             }
         }
+        if (alreadyExists)
+            throw new SubscriberAlreadyExistsException();
     }
 
     @Override
