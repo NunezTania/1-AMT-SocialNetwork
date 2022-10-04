@@ -13,7 +13,7 @@ public class TwitterTest {
     //endregion private attributes
 
     @BeforeEach
-    public void beforeEach(){
+    public void beforeEach() throws Twitter.SubscriberAlreadyExistsException {
         _twitter = new Twitter();
     }
 
@@ -31,7 +31,7 @@ public class TwitterTest {
     }
 
     @Test
-    public void observers_AfterInstantiationWithObservers_Success(){
+    public void observers_AfterInstantiationWithObservers_Success() throws Twitter.SubscriberAlreadyExistsException {
         //given
         //refer to Before Each method
         int expectedAmountOfObservers = 10;
@@ -151,7 +151,6 @@ public class TwitterTest {
             _twitter.unsubscribe(followerNotFound);
         });
     }
-
 
     //endregion public methods
 

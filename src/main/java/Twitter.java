@@ -7,11 +7,10 @@ public class Twitter implements IObservable {
     private List<IObserver> _observers = new ArrayList<IObserver>();
     private List<String> _twits = new ArrayList<String>();
     //endregion private attributes
+    public Twitter() throws SubscriberAlreadyExistsException { this(new ArrayList<>()); }
 
-    public Twitter(){}
-
-    public Twitter(List<IObserver> observers){
-        _observers.addAll(observers);
+    public Twitter(List<IObserver> observers) throws SubscriberAlreadyExistsException {
+        subscribe(observers);
     }
 
     public List<IObserver> getObservers(){
@@ -23,10 +22,14 @@ public class Twitter implements IObservable {
     }
 
     public String lastTwit(){
+        if (_twits == null || _twits.isEmpty())
+            return null;
         return _twits.get(_twits.size() - 1);
     }
 
     public void post(String twit){
+        if (twit == null || twit.isEmpty())
+            return;
         _twits.add(twit);
     }
 
