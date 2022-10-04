@@ -21,7 +21,7 @@ public class Twitter implements IObservable {
         return new ArrayList<>(_twits);
     }
 
-    public String lastTwit(){
+    public String lastTwit() {
         if (_twits == null || _twits.isEmpty())
             return null;
         return _twits.get(_twits.size() - 1);
@@ -69,7 +69,7 @@ public class Twitter implements IObservable {
         }
     }
 
-    public class TwitterException extends Exception { }
+    public class TwitterException extends RuntimeException { }
     public class EmptyListOfSubscribersException extends TwitterException { }
     public class SubscriberAlreadyExistsException extends TwitterException { }
     public class SubscriberNotFoundException extends TwitterException { }

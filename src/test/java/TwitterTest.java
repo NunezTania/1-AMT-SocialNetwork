@@ -72,7 +72,7 @@ public class TwitterTest {
     }
 
     @Test
-    public void subscribe_AddFirstSubscriber_Success() throws Twitter.SubscriberAlreadyExistsException {
+    public void subscribe_AddFirstSubscriber_Success() {
         //given
         //refer to Before Each method
         int expectedAmountOfSubscribers = 15;
@@ -86,7 +86,7 @@ public class TwitterTest {
     }
 
     @Test
-    public void subscribe_AddSubscribersToExistingList_Success() throws Twitter.SubscriberAlreadyExistsException {
+    public void subscribe_AddSubscribersToExistingList_Success() {
         //given
         //refer to Before Each method
         int expectedAmountOfSubscriber = 30;
@@ -102,7 +102,7 @@ public class TwitterTest {
     }
 
     @Test
-    public void subscribe_SubscriberAlreadyExists_ThrowsException() throws Twitter.SubscriberAlreadyExistsException {
+    public void subscribe_SubscriberAlreadyExists_ThrowsException() {
         //given
         //refer to Before Each method
         int expectedAmountOfSubscriber = 15;
@@ -137,7 +137,7 @@ public class TwitterTest {
     }
 
     @Test
-    public void unsubscribe_SubscriberNotFound_ThrowsException() throws Twitter.SubscriberAlreadyExistsException {
+    public void unsubscribe_SubscriberNotFound_ThrowsException() {
         //given
         //refer to Before Each method
         IObserver followerNotFound = new Follower();
